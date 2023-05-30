@@ -100,6 +100,36 @@ systemctl start keepalived
 ```shell
 systemctl status keepalived
 ```
+```shell
+apt install nginx
+```
+```shell
+global_defs {
+    enable_script_security
+}
+
+vrrp_script nginx_check {
+    script "/usr/bin/curl http://127.0.0.1"
+    interval 3
+    user nginx
+}
+
+vrrp_instance VI_1 {
+        notify /etc/keepalived/notify-web.sh root
+        state MASTER
+        interface enp0s3
+        virtual_router_id 15
+        priority 255
+        advert_int 1
+
+        virtual_ipaddress {
+              192.168.123.15/24
+        }
+        track_script {
+            nginx_check
+        }
+}
+```
 
 ![2-1](./10.1-2-001.jpg)
 
