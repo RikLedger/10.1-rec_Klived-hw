@@ -59,7 +59,7 @@ show standby brief
 sudo apt-get install keepalived
 ```
 ```shell
-sudo nano /etc/keeppalived/keepalived.conf
+sudo nano /etc/keepalived/keepalived.conf
 ```
 ```shell
 vrrp_instance VI_1 {
