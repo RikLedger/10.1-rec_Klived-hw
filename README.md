@@ -76,7 +76,7 @@ vrrp_instance VI_1 {
 
 }
 ```
-*На Второй ВМ*
+*На второй ВМ*
 ```shell
 vrrp_instance VI_1 {
         state BACKUP
