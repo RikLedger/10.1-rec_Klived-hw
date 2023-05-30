@@ -61,9 +61,25 @@ sudo apt-get install keepalived
 ```shell
 sudo nano /etc/keepalived/keepalived.conf
 ```
+*На первой ВМ*
 ```shell
 vrrp_instance VI_1 {
         state MASTER
+        interface enp0s3
+        virtual_router_id 15
+        priority 255
+        advert_int 1
+
+        virtual_ipaddress {
+              192.168.1.115/24
+        }
+
+}
+```
+*На Второй ВМ*
+```shell
+vrrp_instance VI_1 {
+        state BACKUP
         interface enp0s3
         virtual_router_id 15
         priority 255
