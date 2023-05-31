@@ -188,6 +188,16 @@ mkdir /var/log/keepalived
 systemctl restart keepalived
 ```
 ![2-1](./10.1-2-001.jpg)
+![2-2](./10.1-2-002.jpg)
+![2-3](./10.1-2-003.jpg)
+*останавливаем keepalived на первой ВМ и перезапускаем на второй ВМ*
+```shell
+systemctl stop keepalived
+```
+```shell
+systemctl restart keepalived
+```
+![2-4](./10.1-2-004.jpg)
 
 
 
